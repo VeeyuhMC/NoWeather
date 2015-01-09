@@ -15,6 +15,6 @@ public class NoWeather extends JavaPlugin implements Listener{
 	@EventHandler
 	public void rain(WeatherChangeEvent e) {
 		e.setCancelled(true); // cancel the event, Meaning weather will not change
-		e.getWorld().setStorm(false); // To prevent a infinite rain storm or simmilar
+		e.getWorld().setStorm(false); // To prevent a infinite rain storm or similar
 	}
 }
