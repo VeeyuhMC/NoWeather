@@ -12,8 +12,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class NoWeather extends JavaPlugin implements Listener{
 	
 	public void onEnable() {
-		saveConfig();
-        	Bukkit.getPluginManager().registerEvents(this, this); // Register the event
+	saveConfig();
+        Bukkit.getPluginManager().registerEvents(this, this); // Register the event
 	}
 	
 	@EventHandler
