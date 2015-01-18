@@ -13,7 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class NoWeather extends JavaPlugin implements Listener{
 	
 	public void onEnable() {
-		saveDefaultConfig();
+	saveDefaultConfig();
         Bukkit.getPluginManager().registerEvents(this, this);
 	}
 	
