@@ -12,8 +12,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class NoWeather extends JavaPlugin implements Listener{
 	
 	public void onEnable() {
-	    saveConfig();
-            Bukkit.getPluginManager().registerEvents(this, this);
+	saveDefaultConfig();
+        Bukkit.getPluginManager().registerEvents(this, this);
 	}
 	
 	@EventHandler
@@ -21,7 +21,7 @@ public class NoWeather extends JavaPlugin implements Listener{
 	  List<String> worlds = getConfig().getStringList("worlds");
 	  for(String w : worlds) {
 	    if(e.getWorld().equals(w)) {
-	          e.setCancelled(true);
+	      e.setCancelled(true);
 		  World ww = Bukkit.getServer().getWorld(w);
 		  ww.setStorm(false);
 	    }
