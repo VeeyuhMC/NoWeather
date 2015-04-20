@@ -14,7 +14,7 @@ public class NoWeather extends JavaPlugin implements Listener{
 	
 	public void onEnable() {
 		saveDefaultConfig();
-        Bukkit.getPluginManager().registerEvents(this, this);
+	        Bukkit.getPluginManager().registerEvents(this, this);
 	}
     
 	@EventHandler(priority = EventPriority.HIGHEST)
