@@ -13,20 +13,21 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class NoWeather extends JavaPlugin implements Listener{
 	
 	public void onEnable() {
-	saveDefaultConfig();
+		saveDefaultConfig();
         Bukkit.getPluginManager().registerEvents(this, this);
 	}
-	
+    
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void rain(WeatherChangeEvent e) {
-	  List<String> worlds = getConfig().getStringList("worlds");
-	  for(String w : worlds) {
-		World world = Bukkit.getWorld(w);
-		if(e.getWorld().equals(world)) {
-	      e.setCancelled(true);
-		  World ww = Bukkit.getServer().getWorld(w);
-		  ww.setStorm(false);
+		if(e.toWeatherState() == true) {
+			List<String> worlds = getConfig().getStringList("worlds");
+			for(String w : worlds) {
+				World world = Bukkit.getServer().getWorld(w);
+				if(e.getWorld().equals(world)) {
+					e.setCancelled(true);
+					world.setStorm(false);
+				}
+			}
 		}
-	  }
 	}
 }
