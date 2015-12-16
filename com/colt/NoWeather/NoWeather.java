@@ -14,7 +14,7 @@ public class NoWeather extends JavaPlugin implements Listener {
 	private List<String> disabledWorlds;
 	
 	public void onEnable() {
-        	Bukkit.getPluginManager().registerEvents(this, this);
+        Bukkit.getPluginManager().registerEvents(this, this);
 		saveDefaultConfig();
 		
 		disabledWorlds = getConfig().getStringList("worlds");
@@ -32,7 +32,7 @@ public class NoWeather extends JavaPlugin implements Listener {
 						world.setThundering(false);
 						world.setWeatherDuration(0);
 					}
-				}e
+				}
 			}
 		}
 	}
