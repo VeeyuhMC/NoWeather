@@ -11,27 +11,27 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class NoWeather extends JavaPlugin implements Listener {
 	
-	List<String> disabledWorlds = getConfig().getStringList("worlds");
+	private List<String> disabledWorlds;
 	
 	public void onEnable() {
-        	Bukkit.getPluginManager().registerEvents(this, this);
+        Bukkit.getPluginManager().registerEvents(this, this);
 		saveDefaultConfig();
+		
+		disabledWorlds = getConfig().getStringList("worlds");
 	}
     
 	@EventHandler
 	public void weatherChange(WeatherChangeEvent event) {
-		if(event.toWeatherState() == true) {
-			for(String world : disabledWorlds) {
-				if(Bukkit.getWorld(world) != null) {
-					World finalWorld = Bukkit.getWorld(world);
-					if(event.getWorld() == finalWorld) {
+		if(event.toWeatherState()) {
+			for(String w : disabledWorlds) {
+				if(Bukkit.getWorlds().contains(w)) {
+					World world = Bukkit.getWorld(w);
+					if(event.getWorld() == world) {
 						event.setCancelled(true);
-						finalWorld.setStorm(false);
-						finalWorld.setThundering(false);
-						finalWorld.setWeatherDuration(0);
+						world.setStorm(false);
+						world.setThundering(false);
+						world.setWeatherDuration(0);
 					}
-				} else {
-					return;
 				}
 			}
 		}
