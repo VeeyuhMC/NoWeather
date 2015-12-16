@@ -32,7 +32,7 @@ public class NoWeather extends JavaPlugin implements Listener {
 						world.setThundering(false);
 						world.setWeatherDuration(0);
 					}
-				}
+				}e
 			}
 		}
 	}
