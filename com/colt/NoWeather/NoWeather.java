@@ -19,6 +19,8 @@ public class NoWeather extends JavaPlugin implements Listener {
 		
 		disabledWorlds = getConfig().getStringList("worlds");
 	}
+	
+	//
     
 	@EventHandler
 	public void weatherChange(WeatherChangeEvent event) {
