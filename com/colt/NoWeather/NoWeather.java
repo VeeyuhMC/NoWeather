@@ -15,7 +15,7 @@ public class NoWeather extends JavaPlugin implements Listener {
 	private List<String> disabledWorlds;
 	
 	public void onEnable() {
-       	Bukkit.getPluginManager().registerEvents(this, this);
+       		Bukkit.getPluginManager().registerEvents(this, this);
 		saveDefaultConfig();
 		
 		disabledWorlds = new ArrayList<>();
